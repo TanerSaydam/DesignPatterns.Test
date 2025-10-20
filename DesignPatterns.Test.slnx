@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/01CreationalPatterns/">
+    <Project Path="01CreationalPatterns/01SingletonPattern/01SingletonPattern.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+</Solution>
