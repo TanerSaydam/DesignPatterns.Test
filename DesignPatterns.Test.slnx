@@ -6,6 +6,9 @@
     <Project Path="01CreationalPatterns/04BuilderPattern/04BuilderPattern.csproj" Id="b6588150-0461-4f49-a5cb-7b0ce277eb05" />
     <Project Path="01CreationalPatterns/05PrototyePattern/05PrototyePattern.csproj" Id="ebc5d860-c5cb-4bd1-a6d4-6f6faab6cb80" />
   </Folder>
+  <Folder Name="/02StructuralPatterns/">
+    <Project Path="02StructuralPatterns/01AdapterPattern/01AdapterPattern.csproj" Id="76379e43-affa-4cee-bd2e-d8e375b8020f" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>
