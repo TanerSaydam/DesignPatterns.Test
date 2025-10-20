@@ -31,61 +31,54 @@ Her ana grup altında kendi alt grupları bulunur:
 Her ana başlık, belirli bir türdeki yazılım problemlerini **yapısal olarak bir grupta toplayıp çözmeyi** hedefler.
 
 ### 1. **Creational Patterns (Yaratımsal Kalıplar)**
-Nesne oluşturma sürecini merkezi, kontrollü ve esnek hale getiren tasarım kalıplarıdır.
-Yani bu kalıplar, “nasıl nesne oluşturulur?” sorusuna farklı çözümler sunar.
-Basitçe, “new” kullanmadan nesne oluşturmayı yönetir.Nesne oluşturma sürecini kontrol altına alır.
+Obje oluşturma sürecini merkezi, kontrollü ve esnek hale getiren tasarım kalıplarıdır.<br>
+Yani bu kalıplar, “nasıl obje oluşturulur?” sorusuna farklı çözümler sunar.<br>
+Basitçe, “new” kullanmadan obje oluşturmayı yönetir.Obje oluşturma sürecini kontrol altına alır.<br>
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
-| **Singleton** | Sınıfın yalnızca tek bir örneğini oluşturur. |
-| **Factory Method** | Alt sınıfların hangi nesneyi oluşturacağına karar vermesini sağlar. |
-| **Abstract Factory** | İlgili nesne ailelerini (ör. tema bileşenleri) oluşturur. |
-| **Builder** | Karmaşık nesneleri adım adım inşa eder. |
-| **Prototype** | Var olan nesneleri kopyalayarak yeni nesneler oluşturur. |
+| **Singleton** | Classın yalnızca tek bir örneğini oluşturur. |
+| **Factory Method** | Alt classların hangi objeyi oluşturacağına karar vermesini sağlar. |
+| **Abstract Factory** | İlgili obje ailelerini (ör. tema bileşenleri) oluşturur. |
+| **Builder** | Karmaşık objeleri adım adım inşa eder. |
+| **Prototype** | Var olan objeleri kopyalayarak yeni objeler oluşturur. |
 
 ---
 
 ### 2. **Structural Patterns (Yapısal Kalıplar)**
-Sınıf ve nesnelerin **birbirleriyle nasıl ilişkilendirileceğini** tanımlayan kalıplardır.  
-Amaç, sistemin parçalarını **daha esnek, yeniden kullanılabilir** ve **bakımı kolay** hale getirmektir.  
-Bu kalıplar, büyük yapıları küçük, yönetilebilir bileşenlere ayırarak kodun organizasyonunu güçlendirir.
+Class ve objelerin **birbirleriyle nasıl ilişkilendirileceğini** tanımlayan kalıplardır.<br>  
+Amaç, sistemin parçalarını **daha esnek, yeniden kullanılabilir** ve **bakımı kolay** hale getirmektir. <br> 
+Bu kalıplar, büyük yapıları küçük, yönetilebilir bileşenlere ayırarak kodun organizasyonunu güçlendirir.<br>
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
-| **Adapter** | Farklı arayüzlere sahip sınıfların birlikte çalışmasını sağlar. |
+| **Adapter** | Farklı arayüzlere sahip classların birlikte çalışmasını sağlar. |
 | **Bridge** | Soyutlama ile implementasyonu birbirinden ayırır. |
-| **Composite** | Nesneleri hiyerarşik yapı (ağaç) içinde temsil eder. |
-| **Decorator** | Nesnelere dinamik olarak yeni özellikler ekler. |
+| **Composite** | Objeleri hiyerarşik yapı (ağaç) içinde temsil eder. |
+| **Decorator** | Objelere dinamik olarak yeni özellikler ekler. |
 | **Facade** | Karmaşık sistemlere basit bir arayüz sunar. |
-| **Flyweight** | Aynı nesneleri paylaşarak bellek kullanımını azaltır. |
-| **Proxy** | Başka bir nesneye erişimi kontrol eden aracı nesnedir. |
+| **Flyweight** | Aynı objeleri paylaşarak bellek kullanımını azaltır. |
+| **Proxy** | Başka bir objeye erişimi kontrol eden aracı objedir. |
 
 ---
 
 ### 3. **Behavioral Patterns (Davranışsal Kalıplar)**
-Nesneler arasındaki **iletişimi ve iş birliğini** düzenleyen kalıplardır.  
-Odak noktası, bir sistemde **sorumlulukların nasıl dağıtılacağı** ve **nesnelerin birbirleriyle nasıl etkileşeceğidir**.  
-Bu kalıplar, esnek ve genişletilebilir davranış modelleri oluşturmayı sağlar.
+Objeler arasındaki **iletişimi ve iş birliğini** düzenleyen kalıplardır.<br>  
+Odak noktası, bir sistemde **sorumlulukların nasıl dağıtılacağı** ve **objelerin birbirleriyle nasıl etkileşeceğidir**.<br>  
+Bu kalıplar, esnek ve genişletilebilir davranış modelleri oluşturmayı sağlar.<br>
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
-| **Chain of Responsibility** | İstekleri sırayla işleyebilen nesne zinciri kurar. |
-| **Command** | İşlemleri nesneler olarak kapsüller. |
+| **Chain of Responsibility** | İstekleri sırayla işleyebilen obje zinciri kurar. |
+| **Command** | İşlemleri objeler olarak kapsüller. |
 | **Interpreter** | Basit diller veya ifadeleri yorumlar. |
 | **Iterator** | Koleksiyon elemanlarına sırayla erişim sağlar. |
-| **Mediator** | Nesneler arası iletişimi merkezi bir aracı üzerinden yönetir. |
-| **Memento** | Nesnenin geçmiş durumunu saklar ve geri yükler. |
-| **Observer** | Bir nesne değiştiğinde, bağlı nesneleri otomatik bilgilendirir. |
-| **State** | Nesnenin davranışını durumuna göre değiştirir. |
+| **Mediator** | Objeler arası iletişimi merkezi bir aracı üzerinden yönetir. |
+| **Memento** | Objenin geçmiş durumunu saklar ve geri yükler. |
+| **Observer** | Bir obje değiştiğinde, bağlı objeleri otomatik bilgilendirir. |
+| **State** | Objenin davranışını durumuna göre değiştirir. |
 | **Strategy** | Bir işlemi farklı algoritmalarla gerçekleştirme olanağı sunar. |
-| **Template Method** | Algoritmanın iskeletini tanımlar, alt sınıflar detayları doldurur. |
-| **Visitor** | Nesne yapısına yeni işlemler eklemeyi kolaylaştırır. |
+| **Template Method** | Algoritmanın iskeletini tanımlar, alt classlar detayları doldurur. |
+| **Visitor** | Obje yapısına yeni işlemler eklemeyi kolaylaştırır. |
 
 ---
-
-## 💡 Kısaca
-| Kategori | Amaç |
-|-----------|-------|
-| **Creational** | Nesne oluşturma sürecini yönetir. |
-| **Structural** | Nesnelerin yapısını ve ilişkilerini düzenler. |
-| **Behavioral** | Nesneler arası etkileşimi ve davranışı tanımlar. |
