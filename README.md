@@ -31,9 +31,9 @@ Her ana grup altında kendi alt grupları bulunur:
 Her ana başlık, belirli bir türdeki yazılım problemlerini **yapısal olarak bir grupta toplayıp çözmeyi** hedefler.
 
 ### 1. **Creational Patterns (Yaratımsal Kalıplar)**
-Obje oluşturma sürecini merkezi, kontrollü ve esnek hale getiren tasarım kalıplarıdır.<br>
-Yani bu kalıplar, “nasıl obje oluşturulur?” sorusuna farklı çözümler sunar.<br>
-Basitçe, “new” kullanmadan obje oluşturmayı yönetir.Obje oluşturma sürecini kontrol altına alır.<br>
+Obje oluşturma sürecini merkezi, kontrollü ve esnek hale getiren tasarım kalıplarıdır.
+Yani bu kalıplar, “nasıl obje oluşturulur?” sorusuna farklı çözümler sunar. 
+Basitçe, “new” kullanmadan obje oluşturmayı yönetir.Obje oluşturma sürecini kontrol altına alır. 
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
@@ -46,9 +46,9 @@ Basitçe, “new” kullanmadan obje oluşturmayı yönetir.Obje oluşturma sür
 ---
 
 ### 2. **Structural Patterns (Yapısal Kalıplar)**
-Class ve objelerin **birbirleriyle nasıl ilişkilendirileceğini** tanımlayan kalıplardır.<br>  
-Amaç, sistemin parçalarını **daha esnek, yeniden kullanılabilir** ve **bakımı kolay** hale getirmektir. <br> 
-Bu kalıplar, büyük yapıları küçük, yönetilebilir bileşenlere ayırarak kodun organizasyonunu güçlendirir.<br>
+Class ve objelerin **birbirleriyle nasıl ilişkilendirileceğini** tanımlayan kalıplardır. 
+Amaç, sistemin parçalarını **daha esnek, yeniden kullanılabilir** ve **bakımı kolay** hale getirmektir. 
+Bu kalıplar, büyük yapıları küçük, yönetilebilir bileşenlere ayırarak kodun organizasyonunu güçlendirir. 
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
@@ -63,9 +63,9 @@ Bu kalıplar, büyük yapıları küçük, yönetilebilir bileşenlere ayırarak
 ---
 
 ### 3. **Behavioral Patterns (Davranışsal Kalıplar)**
-Objeler arasındaki **iletişimi ve iş birliğini** düzenleyen kalıplardır.<br>  
-Odak noktası, bir sistemde **sorumlulukların nasıl dağıtılacağı** ve **objelerin birbirleriyle nasıl etkileşeceğidir**.<br>  
-Bu kalıplar, esnek ve genişletilebilir davranış modelleri oluşturmayı sağlar.<br>
+Objeler arasındaki **iletişimi ve iş birliğini** düzenleyen kalıplardır. 
+Odak noktası, bir sistemde **sorumlulukların nasıl dağıtılacağı** ve **objelerin birbirleriyle nasıl etkileşeceğidir**. 
+Bu kalıplar, esnek ve genişletilebilir davranış modelleri oluşturmayı sağlar. 
 
 | Pattern | Kısa Açıklama |
 |----------|----------------|
