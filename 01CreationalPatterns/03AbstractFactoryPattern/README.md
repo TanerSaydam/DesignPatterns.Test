@@ -1,17 +1,17 @@
-# Abstract Factory Pattern
+ï»¿# Abstract Factory Pattern
 
-Abstract Factory Pattern, birbirleriyle ilişkili veya bağımlı product family’lerini oluşturmak için kullanılan bir creational design pattern’dir.  
-Amaç, client’ın somut class’ları bilmeden, sadece soyut factory interface’leri üzerinden product family’si oluşturmasını sağlamaktır.  
-Böylece client hangi product family’sini kullanacağını seçer, ama ürünlerin nasıl üretildiğini bilmez.  
-Bu pattern, factory’lerin factory’si (factory of factories) olarak da düşünülebilir.
+Abstract Factory Pattern, birbirleriyle iliÅŸkili veya baÄŸÄ±mlÄ± product familyâ€™lerini oluÅŸturmak iÃ§in kullanÄ±lan bir creational design patternâ€™dir.  
+AmaÃ§, clientâ€™Ä±n somut classâ€™larÄ± bilmeden, sadece soyut factory interfaceâ€™leri Ã¼zerinden product familyâ€™si oluÅŸturmasÄ±nÄ± saÄŸlamaktÄ±r.  
+BÃ¶ylece client hangi product familyâ€™sini kullanacaÄŸÄ±nÄ± seÃ§er, ama Ã¼rÃ¼nlerin nasÄ±l Ã¼retildiÄŸini bilmez.  
+Bu pattern, factoryâ€™lerin factoryâ€™si (factory of factories) olarak da dÃ¼ÅŸÃ¼nÃ¼lebilir.
 
-## Amaç
-- Farklı ama birbiriyle uyumlu product family’lerini oluşturmak.  
-- Client’ı somut class bağımlılıklarından soyutlamak.  
-- Yeni product family’leri ekleyerek sistemi genişletebilmek (Open–Closed Principle).  
-- Product family’leri arasında tutarlılığı (consistency) korumak.
+## AmaÃ§
+- FarklÄ± ama birbiriyle uyumlu product familyâ€™lerini oluÅŸturmak.  
+- Clientâ€™Ä± somut class baÄŸÄ±mlÄ±lÄ±klarÄ±ndan soyutlamak.  
+- Yeni product familyâ€™leri ekleyerek sistemi geniÅŸletebilmek (Openâ€“Closed Principle).  
+- Product familyâ€™leri arasÄ±nda tutarlÄ±lÄ±ÄŸÄ± (consistency) korumak.
 
-## Program.cs (örnek kullanım)
+## Program.cs (Ã¶rnek kullanÄ±m)
 
 ```csharp
 Console.WriteLine("Abstract Factory Pattern...");
@@ -121,7 +121,7 @@ class ModernFurnitureFactory : IFurnitureFactory
 }
 ```
 
-## Kullanım Senaryoları
-- UI tema family’leri (dark/light): buton, tablo, input gibi tutarlı bileşen setleri
-- Çoklu platform product setleri (Windows/macOS/Web)
-- Oyun dünyaları: çöl/orman/kar temalı asset family’leri
+## KullanÄ±m SenaryolarÄ±
+- UI tema familyâ€™leri (dark/light): buton, tablo, input gibi tutarlÄ± bileÅŸen setleri
+- Ã‡oklu platform product setleri (Windows/macOS/Web)
+- Oyun dÃ¼nyalarÄ±: Ã§Ã¶l/orman/kar temalÄ± asset familyâ€™leri

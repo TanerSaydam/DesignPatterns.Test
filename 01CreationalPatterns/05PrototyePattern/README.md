@@ -1,15 +1,15 @@
-# Prototype Pattern
+ï»¿# Prototype Pattern
 
-Prototype Pattern, mevcut bir object’in kopyalanarak yeni bir object oluşturulmasını sağlayan bir creational pattern’dir.  
-Yeni bir instance oluşturmak yerine, var olan bir object’in klonlanması performans açısından avantaj sağlar ve karmaşık initialization süreçlerinden kaçınılır.  
+Prototype Pattern, mevcut bir objectâ€™in kopyalanarak yeni bir object oluÅŸturulmasÄ±nÄ± saÄŸlayan bir creational patternâ€™dir.  
+Yeni bir instance oluÅŸturmak yerine, var olan bir objectâ€™in klonlanmasÄ± performans aÃ§Ä±sÄ±ndan avantaj saÄŸlar ve karmaÅŸÄ±k initialization sÃ¼reÃ§lerinden kaÃ§Ä±nÄ±lÄ±r.  
 
-## Amaç
+## AmaÃ§
 
-- Karmaşık veya maliyetli object’leri sıfırdan üretmek yerine klonlamak.  
-- Object’in kopyalanma sürecini kontrol altına almak.  
-- Yeni bir class hiyerarşisi oluşturmadan mevcut object’leri yeniden kullanmak.  
+- KarmaÅŸÄ±k veya maliyetli objectâ€™leri sÄ±fÄ±rdan Ã¼retmek yerine klonlamak.  
+- Objectâ€™in kopyalanma sÃ¼recini kontrol altÄ±na almak.  
+- Yeni bir class hiyerarÅŸisi oluÅŸturmadan mevcut objectâ€™leri yeniden kullanmak.  
 
-## Program.cs (örnek kullanım)
+## Program.cs (Ã¶rnek kullanÄ±m)
 
 ```csharp
 Console.WriteLine("Prototype Pattern...");
@@ -57,9 +57,9 @@ class Product : ICloneable
 }
 ```
 
-## Gerçek Hayatta Kullanımı
+## GerÃ§ek Hayatta KullanÄ±mÄ±
 
-- Veritabanından alınan prototip object’lerin hafızada klonlanması.  
-- Oyunlarda aynı karakter veya nesnelerin kopyalanması.  
-- Grafik uygulamalarında şekil veya bileşenlerin çoğaltılması.  
-- Karmaşık konfigürasyonlara sahip object’lerin çoğaltılması.
+- VeritabanÄ±ndan alÄ±nan prototip objectâ€™lerin hafÄ±zada klonlanmasÄ±.  
+- Oyunlarda aynÄ± karakter veya nesnelerin kopyalanmasÄ±.  
+- Grafik uygulamalarÄ±nda ÅŸekil veya bileÅŸenlerin Ã§oÄŸaltÄ±lmasÄ±.  
+- KarmaÅŸÄ±k konfigÃ¼rasyonlara sahip objectâ€™lerin Ã§oÄŸaltÄ±lmasÄ±.

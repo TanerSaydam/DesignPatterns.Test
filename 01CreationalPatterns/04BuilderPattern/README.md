@@ -1,17 +1,17 @@
-# Builder Pattern
+ï»¿# Builder Pattern
 
-Builder Pattern, karmaşık object oluşturma sürecini adım adım yönetmeyi sağlayan bir creational pattern’dir.  
-Farklı konfigürasyonlara sahip object’leri tek bir inşa süreciyle oluşturmayı mümkün kılar.  
-Bu sayede object’in nasıl oluşturulduğu kodun geri kalanından soyutlanır.
+Builder Pattern, karmaÅŸÄ±k object oluÅŸturma sÃ¼recini adÄ±m adÄ±m yÃ¶netmeyi saÄŸlayan bir creational patternâ€™dir.  
+FarklÄ± konfigÃ¼rasyonlara sahip objectâ€™leri tek bir inÅŸa sÃ¼reciyle oluÅŸturmayÄ± mÃ¼mkÃ¼n kÄ±lar.  
+Bu sayede objectâ€™in nasÄ±l oluÅŸturulduÄŸu kodun geri kalanÄ±ndan soyutlanÄ±r.
 
-## Amaç
+## AmaÃ§
 
-- Karmaşık object’lerin oluşturulma sürecini yönetmek.  
-- Aynı oluşturma adımlarını kullanarak farklı temsiller (varyasyonlar) üretmek.  
-- Constructor’lara çok fazla parametre geçme ihtiyacını ortadan kaldırmak.  
-- Object oluşturma sürecini kolay okunur, esnek ve genişletilebilir hale getirmek.
+- KarmaÅŸÄ±k objectâ€™lerin oluÅŸturulma sÃ¼recini yÃ¶netmek.  
+- AynÄ± oluÅŸturma adÄ±mlarÄ±nÄ± kullanarak farklÄ± temsiller (varyasyonlar) Ã¼retmek.  
+- Constructorâ€™lara Ã§ok fazla parametre geÃ§me ihtiyacÄ±nÄ± ortadan kaldÄ±rmak.  
+- Object oluÅŸturma sÃ¼recini kolay okunur, esnek ve geniÅŸletilebilir hale getirmek.
 
-## Program.cs (örnek kullanım)
+## Program.cs (Ã¶rnek kullanÄ±m)
 
 ```csharp
 Console.WriteLine("Builder Pattern...");
@@ -180,9 +180,9 @@ class ConstructionDirector
 }
 ```
 
-## Kullanım Senaryoları
+## KullanÄ±m SenaryolarÄ±
 
-- UI component’leri veya rapor builder’ları (kompleks yapıların oluşturulması).  
-- Oyunlarda karakter, seviye veya bina inşası.  
-- PDF, HTML veya JSON gibi çok aşamalı çıktı üretimi.  
-- Farklı donanım veya sistem konfigürasyonları (ör. bilgisayar, araba, ev).
+- UI componentâ€™leri veya rapor builderâ€™larÄ± (kompleks yapÄ±larÄ±n oluÅŸturulmasÄ±).  
+- Oyunlarda karakter, seviye veya bina inÅŸasÄ±.  
+- PDF, HTML veya JSON gibi Ã§ok aÅŸamalÄ± Ã§Ä±ktÄ± Ã¼retimi.  
+- FarklÄ± donanÄ±m veya sistem konfigÃ¼rasyonlarÄ± (Ã¶r. bilgisayar, araba, ev).

@@ -1,6 +1,6 @@
-# Singleton Pattern
+ï»¿# Singleton Pattern
 
-Üretmemiz gereken nesnenin aynı instance kullanması uygun senaryorlarda Singleton ile bir tane nesne üretip onu gereken her yerde tekrar instance üretmeden kullanmak için uyguladığımız pattern.
+Ãœretmemiz gereken nesnenin aynÄ± instance kullanmasÄ± uygun senaryorlarda Singleton ile bir tane nesne Ã¼retip onu gereken her yerde tekrar instance Ã¼retmeden kullanmak iÃ§in uyguladÄ±ÄŸÄ±mÄ±z pattern.
 
 ```csharp
 class Logger
@@ -30,8 +30,8 @@ class Logger
 }
 ```
 
-## Threat safe yapısı
-Eğer aynı anda Instance çağrılmaya çalışılırsa ilk üretimde birden fazla instance üretme sorunu ortaya çıkabiliyor bunu çözmek için lock ile ilk çağrıda kod kilitlenip o bittikten sonra diğerlerinin sırayla işlenmesini sağlanıyor. Bu sayede aynı anda istek yapılsa da sisteme ilk ulaşan isntance türetiyor ve diğerleri de bunu kullanıyor.
+## Threat safe yapÄ±sÄ±
+EÄŸer aynÄ± anda Instance Ã§aÄŸrÄ±lmaya Ã§alÄ±ÅŸÄ±lÄ±rsa ilk Ã¼retimde birden fazla instance Ã¼retme sorunu ortaya Ã§Ä±kabiliyor bunu Ã§Ã¶zmek iÃ§in lock ile ilk Ã§aÄŸrÄ±da kod kilitlenip o bittikten sonra diÄŸerlerinin sÄ±rayla iÅŸlenmesini saÄŸlanÄ±yor. Bu sayede aynÄ± anda istek yapÄ±lsa da sisteme ilk ulaÅŸan isntance tÃ¼retiyor ve diÄŸerleri de bunu kullanÄ±yor.
 
 ```csharp
 class Logger2
@@ -67,13 +67,13 @@ class Logger2
 ```
 
 ## Dependency Injection
-Modern teknoloji ile Dependency Injection yöntemi geliştirildi. Singleton DI ile modern uygulamalarda daha basit şekilde uygulanabilir hale geldi.
-önce kütüphaneyi kurmamız gerekiyor
+Modern teknoloji ile Dependency Injection yÃ¶ntemi geliÅŸtirildi. Singleton DI ile modern uygulamalarda daha basit ÅŸekilde uygulanabilir hale geldi.
+Ã¶nce kÃ¼tÃ¼phaneyi kurmamÄ±z gerekiyor
 ```dash
 Microsoft.Extensions.DependencyInjection
 ```
 
-Sonra service collection ile container oluşturup provider ile instance türetmemiz lazım
+Sonra service collection ile container oluÅŸturup provider ile instance tÃ¼retmemiz lazÄ±m
 ```csharp
 ServiceCollection services = new();
 services.AddSingleton<LoggerDI>();

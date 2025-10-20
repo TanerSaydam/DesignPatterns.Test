@@ -1,23 +1,23 @@
-# Factory Pattern
+ï»¿# Factory Pattern
 
-Factory Pattern, object oluşturma sürecini merkezi bir noktada toplar.  
-Bu sayede object oluşturmak için `new` anahtar sözcüğünü doğrudan kullanmadan, **factory** aracılığıyla objectleri dinamik olarak oluşturabiliriz.  
-Amaç, object oluşturmayı soyutlamak ve kod bağımlılığını azaltmaktır.
+Factory Pattern, object oluÅŸturma sÃ¼recini merkezi bir noktada toplar.  
+Bu sayede object oluÅŸturmak iÃ§in `new` anahtar sÃ¶zcÃ¼ÄŸÃ¼nÃ¼ doÄŸrudan kullanmadan, **factory** aracÄ±lÄ±ÄŸÄ±yla objectleri dinamik olarak oluÅŸturabiliriz.  
+AmaÃ§, object oluÅŸturmayÄ± soyutlamak ve kod baÄŸÄ±mlÄ±lÄ±ÄŸÄ±nÄ± azaltmaktÄ±r.
 
-## Ne İşe Yarar?
+## Ne Ä°ÅŸe Yarar?
 
-- Nesne oluşturma sürecini tek bir yerde toplar.  
-- Kodun, hangi classın oluşturulacağını bilmesine gerek kalmaz.  
-- Yeni türler eklendiğinde mevcut kod değiştirilmeden genişletilebilir.
+- Nesne oluÅŸturma sÃ¼recini tek bir yerde toplar.  
+- Kodun, hangi classÄ±n oluÅŸturulacaÄŸÄ±nÄ± bilmesine gerek kalmaz.  
+- Yeni tÃ¼rler eklendiÄŸinde mevcut kod deÄŸiÅŸtirilmeden geniÅŸletilebilir.
 
-> **Not:** Factory Pattern, SOLID prensiplerinden **Open–Closed Principle** (Açık–Kapalı İlkesi) ile uyumludur.  
-> Yeni bir notification türü eklemek için mevcut kodu değiştirmeden yeni bir class oluşturmak yeterlidir.  
-> Böylece kod **genişletmeye açık**, **değişikliğe kapalı** olur.
+> **Not:** Factory Pattern, SOLID prensiplerinden **Openâ€“Closed Principle** (AÃ§Ä±kâ€“KapalÄ± Ä°lkesi) ile uyumludur.  
+> Yeni bir notification tÃ¼rÃ¼ eklemek iÃ§in mevcut kodu deÄŸiÅŸtirmeden yeni bir class oluÅŸturmak yeterlidir.  
+> BÃ¶ylece kod **geniÅŸletmeye aÃ§Ä±k**, **deÄŸiÅŸikliÄŸe kapalÄ±** olur.
 
 
-## Kod Örneği
+## Kod Ã–rneÄŸi
 
-Aşağıda `NotificationFactory`, `EmailNotification` ve `SmsNotification` classlarıyla örnek bir kullanım gösterilmiştir.
+AÅŸaÄŸÄ±da `NotificationFactory`, `EmailNotification` ve `SmsNotification` classlarÄ±yla Ã¶rnek bir kullanÄ±m gÃ¶sterilmiÅŸtir.
 
 ```csharp
 Console.WriteLine("Factory Pattern...");
@@ -75,7 +75,7 @@ enum NotificationTypeEnum
 }
 ```
 
-## Gerçek Hayatta Kullanımı
+## GerÃ§ek Hayatta KullanÄ±mÄ±
 
 - Bildirim sistemlerinde (Email, SMS, Push Notification)
-- Farklı ödeme sistemlerinde (Stripe, PayPal, Iyzico)
+- FarklÄ± Ã¶deme sistemlerinde (Stripe, PayPal, Iyzico)

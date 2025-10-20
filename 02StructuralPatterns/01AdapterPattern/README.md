@@ -1,18 +1,18 @@
-# Adapter Pattern
+ï»¿# Adapter Pattern
 
-Adapter Pattern, birbiriyle uyumsuz arayüzlere sahip class’ların birlikte çalışabilmesini sağlar.  
-Amaç, mevcut bir class’ın kodunu değiştirmeden, onu sisteme uygun hale getiren bir “çevirmen” class yazmaktır.  
+Adapter Pattern, birbiriyle uyumsuz arayÃ¼zlere sahip classâ€™larÄ±n birlikte Ã§alÄ±ÅŸabilmesini saÄŸlar.  
+AmaÃ§, mevcut bir classâ€™Ä±n kodunu deÄŸiÅŸtirmeden, onu sisteme uygun hale getiren bir â€œÃ§evirmenâ€ class yazmaktÄ±r.  
 
-Bu pattern, farklı interface’leri birbiriyle entegre etmek gerektiğinde kullanılır.  
-Yani **client** başka bir yapıyı beklerken, **adapter** aradaki farkı kapatır.
+Bu pattern, farklÄ± interfaceâ€™leri birbiriyle entegre etmek gerektiÄŸinde kullanÄ±lÄ±r.  
+Yani **client** baÅŸka bir yapÄ±yÄ± beklerken, **adapter** aradaki farkÄ± kapatÄ±r.
 
-## Amaç
+## AmaÃ§
 
-- Uyumsuz class’lar arasında köprü (bridge) oluşturmak.  
+- Uyumsuz classâ€™lar arasÄ±nda kÃ¶prÃ¼ (bridge) oluÅŸturmak.  
 - Mevcut class koduna dokunmadan sisteme entegre etmek.  
-- Eski sistemlerle yeni sistemlerin birlikte çalışabilmesini sağlamak.  
+- Eski sistemlerle yeni sistemlerin birlikte Ã§alÄ±ÅŸabilmesini saÄŸlamak.  
 
-## Program.cs (örnek kullanım)
+## Program.cs (Ã¶rnek kullanÄ±m)
 
 ```csharp
 Console.WriteLine("Adapter Pattern...");
@@ -62,9 +62,9 @@ class SmsAdapter : INotificationSender
 }
 ```
 
-## Gerçek Hayatta Kullanımı
+## GerÃ§ek Hayatta KullanÄ±mÄ±
 
-- Farklı API veya servislerin birleştirilmesinde.  
-- Loglama, bildirim veya ödeme sistemlerinde farklı altyapıları entegre etmek için.  
-- Eski (legacy) kodları yeni uygulama mimarilerine uyarlamak için.  
-- Üçüncü taraf servisleri mevcut sistemin interface yapısına uydurmak için.
+- FarklÄ± API veya servislerin birleÅŸtirilmesinde.  
+- Loglama, bildirim veya Ã¶deme sistemlerinde farklÄ± altyapÄ±larÄ± entegre etmek iÃ§in.  
+- Eski (legacy) kodlarÄ± yeni uygulama mimarilerine uyarlamak iÃ§in.  
+- ÃœÃ§Ã¼ncÃ¼ taraf servisleri mevcut sistemin interface yapÄ±sÄ±na uydurmak iÃ§in.
