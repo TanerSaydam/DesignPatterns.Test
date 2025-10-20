@@ -125,8 +125,3 @@ class ModernFurnitureFactory : IFurnitureFactory
 - UI tema family’leri (dark/light): buton, tablo, input gibi tutarlý bileþen setleri
 - Çoklu platform product setleri (Windows/macOS/Web)
 - Oyun dünyalarý: çöl/orman/kar temalý asset family’leri
-
-## Özet
-- **Ne saðlar?** Product family’leri için tutarlý ve geniþletilebilir üretim.
-- **Client’ýn rolü?** Uygun factory’yi seçer; somut class’lara baðýmlý deðildir.
-- **Ne zaman?** Farklý ama iliþkili product setlerini birlikte yönetmek istediðinde.
