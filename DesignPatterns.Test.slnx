@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/01CreationalPatterns/">
-    <Project Path="01CreationalPatterns/01SingletonPattern/01SingletonPattern.csproj" />
+    <Project Path="01CreationalPatterns/01SingletonPattern/01SingletonPattern.csproj" Id="87a1806f-9eae-49a0-9e0d-a0e9ac7cbf18" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
