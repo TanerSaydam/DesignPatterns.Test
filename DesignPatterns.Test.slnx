@@ -2,6 +2,7 @@
   <Folder Name="/01CreationalPatterns/">
     <Project Path="01CreationalPatterns/01SingletonPattern/01SingletonPattern.csproj" Id="87a1806f-9eae-49a0-9e0d-a0e9ac7cbf18" />
     <Project Path="01CreationalPatterns/02FactoryPattern/02FactoryPattern.csproj" Id="75808d0c-c0d5-441c-a1d4-1aae668d6408" />
+    <Project Path="01CreationalPatterns/03AbstractFactoryPattern/03AbstractFactoryPattern.csproj" Id="c3aaa838-cc7c-4bd2-91c6-bf9cd4ff82d3" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
