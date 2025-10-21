@@ -10,6 +10,16 @@ Bir object başka bir object tarafından “sarmalanarak” (wrapped) yeni işle
 - Farklı özellikleri dinamik olarak birleştirebilmek.  
 - Kodun esnekliğini ve yeniden kullanılabilirliğini artırmak.  
 
+## Gerçek Hayat Analojisi
+
+Bir kahve dükkanında temel içecek olarak sade bir kahve düşün ☕  
+Kahveye süt, şeker veya krema eklemek istiyorsan, her kombinasyon için yeni bir class oluşturmak yerine,  
+Decorator Pattern kullanarak bu ekstraları dinamik olarak ekleyebilirsin.  
+
+Her eklenti (milk, sugar, cream) bir “decorator” gibi davranır ve temel kahveyi sarmalayarak yeni özellikler kazandırır.  
+Sonuçta içeceklerin farklı kombinasyonlarını, aynı temel object üzerinden kolayca oluşturabilirsin.
+
+
 ## Program.cs (örnek kullanım)
 
 ```csharp

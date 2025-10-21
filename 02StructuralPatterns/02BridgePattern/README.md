@@ -9,6 +9,18 @@ Bu sayede bir yapının hem soyut tarafını hem de uygulama tarafını ayrı ay
 - Yeni abstraction veya implementation türleri eklenirken mevcut kodu değiştirmemek.  
 - Kodun genişletilebilirliğini ve yeniden kullanılabilirliğini artırmak.  
 
+## Gerçek Hayat Analojisi
+
+Bir uzaktan kumanda düşün 🎮  
+- Kumanda, televizyon veya radyo gibi farklı cihazları kontrol edebilir.  
+- Her cihazın açma, kapama ve ses ayarlama gibi kendi işlemleri vardır.  
+
+Kumanda (abstraction) ile cihaz (implementation) birbirinden bağımsızdır.  
+Yeni bir cihaz eklendiğinde kumandayı değiştirmene gerek kalmaz;  
+aynı şekilde yeni bir kumanda türü eklendiğinde de cihaz kodlarını güncellemezsin.  
+**Bridge Pattern**, bu iki yapıyı birbirine bağlayan köprü (bridge) görevi görür.
+
+
 ## Program.cs (örnek kullanım)
 
 ```csharp

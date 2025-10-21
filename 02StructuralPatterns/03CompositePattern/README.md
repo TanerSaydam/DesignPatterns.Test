@@ -10,6 +10,17 @@ Bu sayede client, bir object mi yoksa alt object’lerden oluşan bir grup mu ol
 - Tekil ve bileşik object’leri aynı şekilde işlemek.  
 - “Parça–bütün” ilişkilerini sade ve genişletilebilir biçimde modellemek.
 
+## Gerçek Hayat Analojisi
+
+Bir bilgisayar dosya sistemi düşün 💾  
+- **Dosyalar (File)** → gerçek veriyi tutan yaprak (leaf) object’lerdir.  
+- **Klasörler (Folder)** → başka dosyaları veya klasörleri içerebilen bileşik (composite) object’lerdir.  
+
+Sen bir klasörün boyutunu öğrenmek istediğinde, sistem hem içindeki dosyaların hem de alt klasörlerin boyutlarını toplar.  
+Aynı şekilde klasörleri ve dosyaları listelerken de aynı metodla işlem yapılır —  
+**Composite Pattern** sayesinde sistem, tekil dosya ile klasör grubu arasında ayrım yapmadan çalışabilir.
+
+
 ## Program.cs (örnek kullanım)
 
 ```csharp
