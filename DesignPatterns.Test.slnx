@@ -12,6 +12,7 @@
     <Project Path="02StructuralPatterns/03CompositePattern/03CompositePattern.csproj" Id="febd19dd-2348-4f6b-ac79-53112ccceea0" />
     <Project Path="02StructuralPatterns/04DecoratorPattern/04DecoratorPattern.csproj" Id="a8d1f1c1-a2c6-48dc-8a65-06a9b7cfc992" />
     <Project Path="02StructuralPatterns/05FavadePattern/05FavadePattern.csproj" Id="c068e1d7-a4bb-4147-84ea-28d24bbd1c5c" />
+    <Project Path="02StructuralPatterns/06FlyweightPattern/06FlyweightPattern.csproj" Id="080b3b0b-eb12-4a82-8630-12d014ec6b2a" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
