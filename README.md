@@ -82,3 +82,46 @@ Bu kalıplar, esnek ve genişletilebilir davranış modelleri oluşturmayı sağ
 | **Visitor** | Obje yapısına yeni işlemler eklemeyi kolaylaştırır. |
 
 ---
+
+# 🧭 Modern Yaklaşımlara Geçiş – Design Patterns’in Evrimi
+
+## 🎯 Giriş  
+1994 yılında yayımlanan *“Design Patterns: Elements of Reusable Object-Oriented Software”* kitabı ile popülerleşen klasik tasarım kalıpları,  
+zamanla teknolojilerin, dillerin ve framework’lerin gelişmesiyle birlikte **modern yazılım mimarilerinin temelini** oluşturdu.  
+
+Bu süreçte:
+- **Bazı kalıplar birebir korunarak kullanılmaya devam etti,**
+- **Bazıları modern yapılara evrildi,**
+- **Bazıları ise framework’lerin içine gömülerek soyutlandı.**
+
+---
+
+## 🔄 Örneklerle Klasik → Modern Evrim
+
+| Klasik Design Pattern | Modern Karşılığı / Evrimi | Açıklama |
+|------------------------|---------------------------|-----------|
+| **Singleton** | Dependency Injection Container + Lifetime (`Singleton`, `Scoped`, `Transient`) | Artık global erişim yerine, DI container yaşam süresi yönetimiyle kontrol ediliyor. |
+| **Proxy** | Service Pattern + Attribute / Filter / Middleware | Proxy’nin “çağrıyı sarmalama” görevi framework seviyesine taşındı. Cross-cutting concern’ler artık AOP, pipeline veya filter yapılarıyla yönetiliyor. |
+| **Factory / Abstract Factory** | IoC Container (Dependency Injection) | Nesne üretim süreci artık container tarafından otomatik yönetiliyor. |
+| **Observer** | Event Bus, MediatR, SignalR, Rx, Pub/Sub | Gözlemci mantığı event-driven (olay güdümlü) mimarilere dönüştü. |
+| **Decorator** | Pipeline, Middleware, ActionFilter, Behavior | Çağrı zincirine davranış ekleme artık pipeline tabanlı hale geldi. |
+| **Command Pattern** | CQRS + Mediator | Komutların bağımsız olarak işlenmesi CQRS yapısı ve handler’lar aracılığıyla yapılıyor. |
+| **Facade** | API Gateway, Application Service | Alt sistemleri sadeleştiren yapı artık gateway veya application-level servis olarak uygulanıyor. |
+| **Flyweight** | Cache, Object Pooling, Shared Immutable State | Nesne paylaşımı modern cache mekanizmalarıyla sağlanıyor. |
+
+---
+
+## 🧠 Genel Değerlendirme  
+
+> Klasik Design Pattern’lar hâlâ yaşıyor;  
+> ancak artık framework’lerin, DI container’ların, ve middleware yapıların **temeline entegre olmuş** durumda.
+
+Bir başka ifadeyle:  
+- 1994’te bu kalıplar **manuel olarak** uygulanıyordu,  
+- 2025’te ise bu prensipler **framework seviyesinde otomatikleşmiş** durumda.
+
+---
+
+## 💬 Sonuç  
+> “Klasik Design Pattern’lar, modern yazılım mimarilerinin temel yapı taşları olmuş,  
+> ancak teknolojik evrimle birlikte birçoğu framework’lerin içerisine entegre edilerek soyutlanmıştır.” ✅
