@@ -74,8 +74,3 @@ enum NotificationTypeEnum
     Sms
 }
 ```
-
-## Gerçek Hayatta Kullanımı
-
-- Bildirim sistemlerinde (Email, SMS, Push Notification)
-- Farklı ödeme sistemlerinde (Stripe, PayPal, Iyzico)

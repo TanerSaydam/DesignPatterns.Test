@@ -117,10 +117,3 @@ class Forest
     }
 }
 ```
-
-## Gerçek Hayatta Kullanımı
-
-- Oyunlarda aynı model, doku veya sprite’ı paylaşan çok sayıda düşman veya ağaç nesnesi oluşturmak.  
-- Grafik sistemlerinde tekrar eden simgelerin bellekte tek kopyasını tutmak.  
-- Metin düzenleyicilerde aynı biçimlendirmeyi paylaşan karakter object’lerini yönetmek.  
-- Harita uygulamalarında aynı tür ikonların tekrar tekrar çizilmesini önlemek.

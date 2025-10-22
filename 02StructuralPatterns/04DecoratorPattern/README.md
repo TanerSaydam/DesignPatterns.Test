@@ -1,110 +1,141 @@
-﻿# Decorator Pattern
+﻿# 🧱 Decorator Pattern
 
-Decorator Pattern, bir object’in class’ını değiştirmeden ona yeni davranışlar veya özellikler eklemeyi sağlar.  
-Bu pattern, miras (inheritance) yerine bileşim (composition) kullanarak dinamik genişletme imkânı sunar.  
-Bir object başka bir object tarafından “sarmalanarak” (wrapped) yeni işlevler kazanır.
+## 🎯 Amaç
+Decorator Pattern, bir class’ın yapısını değiştirmeden ona **dinamik olarak yeni davranışlar eklemeyi** sağlar.  
+Yani miras almak yerine, mevcut nesneyi **sarmalayarak (wrap)** genişletir.  
 
-## Amaç
+Gerçek yazılımda bu genellikle şurada kullanılır:
+- Log ekleme  
+- Cache ekleme  
+- Validation / Authorization işlemleri  
+- Mail veya HTTP isteklerine ek özellikler kazandırma  
 
-- Object’e yeni özellikler eklerken temel class’ı değiştirmemek.  
-- Farklı özellikleri dinamik olarak birleştirebilmek.  
-- Kodun esnekliğini ve yeniden kullanılabilirliğini artırmak.  
+---
 
-## Gerçek Hayat Analojisi
+## 🧩 Senaryo: Mail Gönderim Servisi
 
-Bir kahve dükkanında temel içecek olarak sade bir kahve düşün ☕  
-Kahveye süt, şeker veya krema eklemek istiyorsan, her kombinasyon için yeni bir class oluşturmak yerine,  
-Decorator Pattern kullanarak bu ekstraları dinamik olarak ekleyebilirsin.  
+Bir uygulamada mail gönderim altyapısı var.  
+Temel servis sadece mail gönderiyor ama zamanla şu ihtiyaçlar doğuyor:
 
-Her eklenti (milk, sugar, cream) bir “decorator” gibi davranır ve temel kahveyi sarmalayarak yeni özellikler kazandırır.  
-Sonuçta içeceklerin farklı kombinasyonlarını, aynı temel object üzerinden kolayca oluşturabilirsin.
+- Gönderilen mailleri loglamak  
+- Mailin sonuna otomatik imza eklemek  
+- Gerekirse başka politikalar eklemek (ör. spam kontrolü, hata tekrarı)
 
+Bu değişiklikleri yapmak için `SmtpMailService`’i değiştirmek yerine **Decorator Pattern** ile yeni davranışlar ekliyoruz.
 
-## Program.cs (örnek kullanım)
+---
+
+## 💻 Kod Örneği
 
 ```csharp
-Console.WriteLine("Decorator Pattern...");
+Console.WriteLine("Decorator Pattern – Mail Service Example\n");
 
-IDrink coffee = new Coffee();
-Console.WriteLine($"{coffee.GetDescription()} - ${coffee.GetCost()}");
+IMailService mail = new SmtpMailService();
+mail = new LoggingMailDecorator(mail);
+mail = new SignatureMailDecorator(mail, "\n--\nBest regards,\nACME Corp");
 
-IDrink milkCoffee = new MilkDecorator(coffee);
-Console.WriteLine($"{milkCoffee.GetDescription()} - ${milkCoffee.GetCost()}");
-
-IDrink sugarMilkCoffee = new SugarDecorator(milkCoffee);
-Console.WriteLine($"{sugarMilkCoffee.GetDescription()} - ${sugarMilkCoffee.GetCost()}");
-
+mail.Send("user@example.com", "Welcome", "Hello, welcome to our platform!");
 Console.ReadLine();
 
-interface IDrink
+
+public interface IMailService
 {
-    string GetDescription();
-    double GetCost();
+    void Send(string to, string subject, string body);
 }
 
-class Coffee : IDrink
+public class SmtpMailService : IMailService
 {
-    public string GetDescription()
+    public void Send(string to, string subject, string body)
     {
-        return "Plain Coffe";
-    }
-    public double GetCost()
-    {
-        return 2.0;
-    }
-
-}
-
-abstract class DrinkDecorator : IDrink
-{
-    protected readonly IDrink _drink;
-
-    protected DrinkDecorator(IDrink drink)
-    {
-        _drink = drink;
-    }
-
-    public abstract string GetDescription();
-    public abstract double GetCost();
-
-}
-
-class MilkDecorator : DrinkDecorator
-{
-    public MilkDecorator(IDrink drink) : base(drink)
-    {
-
-    }
-    public override string GetDescription()
-    {
-        return _drink.GetDescription() + ", Milk";
-    }
-    public override double GetCost()
-    {
-        return _drink.GetCost() + 0.5;
+        Console.WriteLine($"Sending email to {to}\nSubject: {subject}\nBody:\n{body}\n");
     }
 }
 
-class SugarDecorator : DrinkDecorator
+// Base decorator
+public abstract class MailDecorator : IMailService
 {
-    public SugarDecorator(IDrink drink) : base(drink)
+    protected readonly IMailService _inner;
+
+    protected MailDecorator(IMailService inner)
     {
-    }
-    public override double GetCost()
-    {
-        return _drink.GetCost() + 0.3;
+        _inner = inner;
     }
 
-    public override string GetDescription()
+    public abstract void Send(string to, string subject, string body);
+}
+
+// Concrete decorators
+public class LoggingMailDecorator : MailDecorator
+{
+    public LoggingMailDecorator(IMailService inner) : base(inner) { }
+
+    public override void Send(string to, string subject, string body)
     {
-        return _drink.GetDescription() + ", Sugar";
+        Console.WriteLine($"[LOG] Sending mail to {to} at {DateTime.Now}");
+        _inner.Send(to, subject, body);
+    }
+}
+
+public class SignatureMailDecorator : MailDecorator
+{
+    private readonly string _signature;
+    public SignatureMailDecorator(IMailService inner, string signature) : base(inner)
+    {
+        _signature = signature;
+    }
+
+    public override void Send(string to, string subject, string body)
+    {
+        var signedBody = body + _signature;
+        _inner.Send(to, subject, signedBody);
     }
 }
 ```
 
-## Gerçek Hayatta Kullanımı
+---
 
-- Kahve örneğinde olduğu gibi içeceklere dinamik olarak malzeme (süt, şeker, krema) eklemek.  
-- Logger sistemlerinde log mesajına timestamp veya renk eklemek.  
-- Stream API’lerinde (ör. `BufferedStream`, `GZipStream`) veri akışına özellik eklemek.  
-- UI component’lerinde bir elementin etrafına border, shadow veya stil sarmalayıcıları eklemek.
+## 🔍 Nasıl Çalışıyor?
+
+1️⃣ `SmtpMailService` → mail gönderen temel servis  
+2️⃣ `LoggingMailDecorator` → gönderim öncesi log ekler  
+3️⃣ `SignatureMailDecorator` → mail gövdesine imza ekler  
+4️⃣ Tüm dekoratörler aynı `IMailService` arayüzünü uygular  
+
+Çağrı sırası:  
+```powershell
+LoggingMailDecorator.Send()
+ → SignatureMailDecorator.Send()
+   → SmtpMailService.Send()
+```
+
+Her dekoratör, çağrıyı `_inner.Send()` ile bir sonraki katmana iletir.
+
+---
+
+## 📦 Çıktı
+
+```powershell
+[LOG] Sending mail to user@example.com at 10/22/2025 18:40:00
+Sending email to user@example.com
+Subject: Welcome
+Body:
+Hello, welcome to our platform!
+--
+Best regards,
+ACME Corp
+```
+
+---
+
+## 💬 Gerçek Kullanım Alanları
+
+- `.NET Stream` sınıflarında (`GZipStream`, `BufferedStream`, `CryptoStream`)  
+- `ILogger` zincirlerinde log verisini zenginleştirme  
+- `HttpClient` middleware zincirlerinde request/response sarmalama  
+- Business katmanında audit, caching, validation ekleme  
+
+---
+
+## 🧩 Özet  
+> Decorator Pattern, nesnelere dinamik olarak yeni davranışlar eklemenin esnek yoludur.  
+> Mevcut sınıfı değiştirmeden davranışlarını “sarmalayarak” genişletir.

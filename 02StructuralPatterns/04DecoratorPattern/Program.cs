@@ -1,77 +1,63 @@
-﻿Console.WriteLine("Decorator Pattern...");
+﻿Console.WriteLine("Decorator Pattern – Mail Service Example\n");
 
-IDrink coffee = new Coffee();
-Console.WriteLine($"{coffee.GetDescription()} - ${coffee.GetCost()}");
+IMailService mail = new SmtpMailService();
+mail = new LoggingMailDecorator(mail);
+mail = new SignatureMailDecorator(mail, "\n--\nBest regards,\nACME Corp");
 
-IDrink milkCoffee = new MilkDecorator(coffee);
-Console.WriteLine($"{milkCoffee.GetDescription()} - ${milkCoffee.GetCost()}");
-
-IDrink sugarMilkCoffee = new SugarDecorator(milkCoffee);
-Console.WriteLine($"{sugarMilkCoffee.GetDescription()} - ${sugarMilkCoffee.GetCost()}");
+mail.Send("user@example.com", "Welcome", "Hello, welcome to our platform!");
 
 Console.ReadLine();
 
-interface IDrink
+
+public interface IMailService
 {
-    string GetDescription();
-    double GetCost();
+    void Send(string to, string subject, string body);
 }
 
-class Coffee : IDrink
+public class SmtpMailService : IMailService
 {
-    public string GetDescription()
+    public void Send(string to, string subject, string body)
     {
-        return "Plain Coffe";
-    }
-    public double GetCost()
-    {
-        return 2.0;
-    }
-
-}
-
-abstract class DrinkDecorator : IDrink
-{
-    protected readonly IDrink _drink;
-
-    protected DrinkDecorator(IDrink drink)
-    {
-        _drink = drink;
-    }
-
-    public abstract string GetDescription();
-    public abstract double GetCost();
-
-}
-
-class MilkDecorator : DrinkDecorator
-{
-    public MilkDecorator(IDrink drink) : base(drink)
-    {
-
-    }
-    public override string GetDescription()
-    {
-        return _drink.GetDescription() + ", Milk";
-    }
-    public override double GetCost()
-    {
-        return _drink.GetCost() + 0.5;
+        Console.WriteLine($"Sending email to {to}\nSubject: {subject}\nBody:\n{body}\n");
     }
 }
 
-class SugarDecorator : DrinkDecorator
+// Base decorator
+public abstract class MailDecorator : IMailService
 {
-    public SugarDecorator(IDrink drink) : base(drink)
+    protected readonly IMailService _inner;
+
+    protected MailDecorator(IMailService inner)
     {
-    }
-    public override double GetCost()
-    {
-        return _drink.GetCost() + 0.3;
+        _inner = inner;
     }
 
-    public override string GetDescription()
+    public abstract void Send(string to, string subject, string body);
+}
+
+// Concrete decorators
+public class LoggingMailDecorator : MailDecorator
+{
+    public LoggingMailDecorator(IMailService inner) : base(inner) { }
+
+    public override void Send(string to, string subject, string body)
     {
-        return _drink.GetDescription() + ", Sugar";
+        Console.WriteLine($"[LOG] Sending mail to {to} at {DateTime.Now}");
+        _inner.Send(to, subject, body);
+    }
+}
+
+public class SignatureMailDecorator : MailDecorator
+{
+    private readonly string _signature;
+    public SignatureMailDecorator(IMailService inner, string signature) : base(inner)
+    {
+        _signature = signature;
+    }
+
+    public override void Send(string to, string subject, string body)
+    {
+        var signedBody = body + _signature;
+        _inner.Send(to, subject, signedBody);
     }
 }

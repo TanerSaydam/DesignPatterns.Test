@@ -179,10 +179,3 @@ class ConstructionDirector
     }
 }
 ```
-
-## Kullanım Senaryoları
-
-- UI component’leri veya rapor builder’ları (kompleks yapıların oluşturulması).  
-- Oyunlarda karakter, seviye veya bina inşası.  
-- PDF, HTML veya JSON gibi çok aşamalı çıktı üretimi.  
-- Farklı donanım veya sistem konfigürasyonları (ör. bilgisayar, araba, ev).

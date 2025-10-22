@@ -8,9 +8,29 @@ Yani **client** başka bir yapıyı beklerken, **adapter** aradaki farkı kapat�
 
 ## Amaç
 
-- Uyumsuz class’lar arasında köprü (bridge) oluşturmak.  
-- Mevcut class koduna dokunmadan sisteme entegre etmek.  
-- Eski sistemlerle yeni sistemlerin birlikte çalışabilmesini sağlamak.  
+Elimizde iki farklı “bildirim gönderici” var:
+1. EmailNotificationSender → Send(to, message) metodu var.
+2. SmsService → ama bu sınıfın metodu SendSms(phoneNumber, text) (farklı isim ve parametre yapısı).
+
+Yeni sistem tüm bildirimleri tek bir ortak arayüzden (INotificationSender) göndermek istiyor.
+Ama SmsService bu arayüze uymuyor.
+
+## Çözüm (Adapter)
+- SmsAdapter sınıfı, INotificationSender arayüzünü uyguluyor (yani yeni sistemin beklediği formda davranıyor).
+- İçeride, gelen çağrıyı (Send) eski sistemin anlayacağı hale çeviriyor (_smsService.SendSms(to, message)).
+Yani SmsAdapter iki taraf arasında çevirmen (adapter) görevi görüyor.
+
+## Akış
+1. Kod smsSender.Send("+9055...", "Hello via SMS!") der.
+2. SmsAdapter.Send() çalışır.
+3. Adapter, gelen to ve message’ı alıp _smsService.SendSms() olarak çağırır.
+4. Böylece SmsService sanki INotificationSender gibi davranmış olur.
+
+## Özet
+- EmailNotificationSender → zaten arayüze uygun, direkt kullanılıyor.
+- SmsService → farklı arayüzde, o yüzden Adapter ile sarılıyor.
+- Client (Program.cs) → ikisinin farkını bilmeden aynı interface ile çağırıyor.
+“Farklı arayüzlere sahip nesnelerin, ortak bir arayüz üzerinden birlikte çalışmasını sağlamak.”
 
 ## Program.cs (örnek kullanım)
 
@@ -61,10 +81,3 @@ class SmsAdapter : INotificationSender
     }
 }
 ```
-
-## Gerçek Hayatta Kullanımı
-
-- Farklı API veya servislerin birleştirilmesinde.  
-- Loglama, bildirim veya ödeme sistemlerinde farklı altyapıları entegre etmek için.  
-- Eski (legacy) kodları yeni uygulama mimarilerine uyarlamak için.  
-- Üçüncü taraf servisleri mevcut sistemin interface yapısına uydurmak için.

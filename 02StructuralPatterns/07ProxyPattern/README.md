@@ -79,11 +79,3 @@ class ImageProxy : IImage
     }
 }
 ```
-
-## Gerçek Hayatta Kullanımı
-
-- **Virtual Proxy:** Ağır nesnelerin yalnızca gerektiğinde oluşturulması (ör. resim veya video yükleme).  
-- **Protection Proxy:** Erişim yetkilerinin kontrol edilmesi (ör. kullanıcı rolüne göre).  
-- **Caching Proxy:** Sık kullanılan verilerin önbelleğe alınması.  
-- **Remote Proxy:** Uzak sunuculardaki nesnelere erişimin yönetilmesi.  
-- **Logging Proxy:** Nesneye yapılan işlemlerin kaydedilmesi (ör. debug veya audit amaçlı).

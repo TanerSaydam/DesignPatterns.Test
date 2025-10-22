@@ -80,9 +80,3 @@ class ShopFacade
     }
 }
 ```
-
-## Gerçek Hayatta Kullanımı
-
-- Karmaşık API’leri sadeleştirmek için tek bir yönetici class (ör. `PaymentFacade`, `VideoConversionFacade`).  
-- Alt sistemlerden (authentication, logging, caching) oluşan framework’lerde merkezi erişim noktası oluşturmak.  
-- Farklı modülleri (ör. database, file system, network) yöneten birleşik servis katmanları oluşturmak.

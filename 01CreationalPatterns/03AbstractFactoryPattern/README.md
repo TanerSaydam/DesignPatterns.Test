@@ -120,8 +120,3 @@ class ModernFurnitureFactory : IFurnitureFactory
     }
 }
 ```
-
-## Kullanım Senaryoları
-- UI tema family’leri (dark/light): buton, tablo, input gibi tutarlı bileşen setleri
-- Çoklu platform product setleri (Windows/macOS/Web)
-- Oyun dünyaları: çöl/orman/kar temalı asset family’leri

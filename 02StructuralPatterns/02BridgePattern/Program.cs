@@ -1,104 +1,51 @@
 ﻿Console.WriteLine("Bridge Pattern....");
 
-IDevice tv = new TvDevice();
-IDevice radio = new RadioDevice();
+var consoleLogger = new ConsoleLogProvider();
+var fileLogger = new FileLogProvider();
 
-IRemote tvRemote = new Remote(tv);
-tvRemote.TogglePower();
+LogBase appLog = new AppLog(consoleLogger);
+appLog.Write("Application started.");
 
-IRemote radioRemote = new Remote(radio);
-radioRemote.TogglePower();
-radioRemote.Mute();
+LogBase auditLog = new AuditLog(fileLogger);
+auditLog.Write("User deleted account.");
 
 Console.ReadLine();
-
-interface IDevice
+public interface ILogProvider
 {
-    bool IsEnabled { get; }
-    void Enable();
-    void Disable();
-    void SetVolume(int volume);
-    int GetVolume();
+    void Log(string message);
 }
 
-class TvDevice : IDevice
+public class ConsoleLogProvider : ILogProvider
 {
-    private bool _enabled;
-    private int _volume;
-    public bool IsEnabled => _enabled;
-
-    public void Enable()
-    {
-        _enabled = true;
-        Console.WriteLine("TV is ON");
-    }
-
-    public void Disable()
-    {
-        _enabled = false;
-        Console.WriteLine("TV is OFF");
-    }
-    public void SetVolume(int volume)
-    {
-        _volume = volume;
-        Console.WriteLine("TV volume set to {0}", volume);
-    }
-    public int GetVolume()
-    {
-        return _volume;
-    }
+    public void Log(string message) => Console.WriteLine($"[Console] {message}");
 }
 
-class RadioDevice : IDevice
+public class FileLogProvider : ILogProvider
 {
-    private bool _enabled;
-    private int _volume;
-    public bool IsEnabled => _enabled;
-
-    public void Enable()
-    {
-        _enabled = true;
-        Console.WriteLine("Radio is ON");
-    }
-
-    public void Disable()
-    {
-        _enabled = false;
-        Console.WriteLine("Radio is OFF");
-    }
-    public void SetVolume(int volume)
-    {
-        _volume = volume;
-        Console.WriteLine("Radio volume set to {0}", volume);
-    }
-    public int GetVolume()
-    {
-        return _volume;
-    }
+    public void Log(string message) => File.AppendAllText("log.txt", message + "\n");
 }
 
-interface IRemote
+public abstract class LogBase
 {
-    void TogglePower();
-    void Mute();
+    protected readonly ILogProvider _provider;
+
+    protected LogBase(ILogProvider provider) => _provider = provider;
+
+    public abstract void Write(string message);
 }
 
-class Remote(IDevice device) : IRemote
+public class AppLog : LogBase
 {
-    public void TogglePower()
-    {
-        if (device.IsEnabled)
-        {
-            device.Disable();
-        }
-        else
-        {
-            device.Enable();
-        }
-    }
-    public void Mute()
-    {
-        device.SetVolume(0);
-        Console.WriteLine("Muted the device.");
-    }
+    public AppLog(ILogProvider provider) : base(provider) { }
+
+    public override void Write(string message)
+        => _provider.Log($"[App] {message}");
+}
+
+public class AuditLog : LogBase
+{
+    public AuditLog(ILogProvider provider) : base(provider) { }
+
+    public override void Write(string message)
+        => _provider.Log($"[Audit] {message}");
 }
