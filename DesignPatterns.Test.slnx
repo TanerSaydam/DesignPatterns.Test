@@ -15,6 +15,19 @@
     <Project Path="02StructuralPatterns/06FlyweightPattern/06FlyweightPattern.csproj" Id="080b3b0b-eb12-4a82-8630-12d014ec6b2a" />
     <Project Path="02StructuralPatterns/07ProxyPattern/07ProxyPattern.csproj" Id="73c87336-9eb9-4e80-b21d-5ec784f218c9" />
   </Folder>
+  <Folder Name="/03BehavioralPatterns/">
+    <Project Path="03BehavioralPatterns/01ChainOfResponsibility/01ChainOfResponsibility.csproj" Id="a20c35cf-e19f-4c13-8b06-bb2ee6db95b2" />
+    <Project Path="03BehavioralPatterns/02CommandPattern/02CommandPattern.csproj" Id="15412700-0c10-4118-99ff-1fa70a29b13a" />
+    <Project Path="03BehavioralPatterns/03InterpreterPattern/03InterpreterPattern.csproj" Id="d89663cd-d836-44c2-a457-df33c32388c4" />
+    <Project Path="03BehavioralPatterns/04IteratorPattern/04IteratorPattern.csproj" Id="5c125e28-b55b-4722-bd7a-c563eed880c9" />
+    <Project Path="03BehavioralPatterns/05MediatorPattern/05MediatorPattern.csproj" Id="ed2ae5b9-1216-407a-92aa-b0d2174d0602" />
+    <Project Path="03BehavioralPatterns/06MementoPattern/06MementoPattern.csproj" Id="62282c10-dc31-4ea1-8678-86a12b201ed9" />
+    <Project Path="03BehavioralPatterns/07ObserverPattern/07ObserverPattern.csproj" Id="048350c0-935d-4510-b539-084a017154d4" />
+    <Project Path="03BehavioralPatterns/08StatePattern/08StatePattern.csproj" Id="f97aebe2-2845-4e27-b2e9-d4cc9458f133" />
+    <Project Path="03BehavioralPatterns/09StrategyPattern/09StrategyPattern.csproj" Id="e2db8847-5022-4ec4-9065-50bf3eac1e4a" />
+    <Project Path="03BehavioralPatterns/10TemplateMethodPattern/10TemplateMethodPattern.csproj" Id="b50b667e-a6fb-4ec5-a447-c74be8045168" />
+    <Project Path="03BehavioralPatterns/11VisitorPattern/11VisitorPattern.csproj" Id="b6109d34-562d-496b-b4d7-c9abfa9473a7" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>
