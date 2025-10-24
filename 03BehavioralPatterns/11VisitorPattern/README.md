@@ -9,101 +9,66 @@ sadece yeni bir **Visitor** eklenir.
 
 ## Gerçek Hayat Analojisi
 
-Bir **belge (document)** düşün 📄  
-Belgede farklı içerik türleri vardır: düz metin, kalın metin, bağlantılar vb.  
-Bu belgenin HTML veya Markdown gibi farklı formatlarda dışa aktarılması gerekir.  
+Bir alışveriş sepetinde Book ve Fruit nesnelerin var:
 
-Ancak her formatta (HTML, Markdown, PDF…) belgeyi farklı şekilde işlemek gerekir.  
-Yeni bir export tipi geldiğinde document class’larını değiştirmek istemezsin — sadece yeni bir ziyaretçi (Visitor) eklersin.  
+Fiyat hesaplamak,
 
-Yani:
-- **IDocumentPart** → belge içindeki parça (PlainText, BoldText, Hyperlink)  
-- **IDocumentVisitor** → ziyaretçi (işlem tanımlayıcı)  
-- **HtmlExporter / MarkdownExporter** → farklı davranışları uygulayan ziyaretçiler  
+Vergi uygulamak gibi işlemler yapılacak.
+
+Bu işlemleri nesnelerin içine koymak yerine visitor’larla ayırırız:
 
 ## Program.cs (örnek kullanım)
 
 ```csharp
-Console.WriteLine("Visitor Pattern - Document Export Example...");
+Console.WriteLine("Visitor Pattern");
 
-var document = new List<IDocumentPart>
+var items = new IItem[]
 {
-    new PlainText("Hello World!"),
-    new BoldText("This is bold."),
-    new Hyperlink("Click here", "https://example.com")
+    new Book { Title = "C# Patterns", Price = 120 },
+    new Fruit { Name = "Apple", Weight = 2, PricePerKg = 10 }
 };
 
-var htmlExporter = new HtmlExporter();
-var markdownExporter = new MarkdownExporter();
-
-Console.WriteLine("📄 HTML Export:");
-foreach (var part in document)
-    part.Accept(htmlExporter);
-
-Console.WriteLine("\n📄 Markdown Export:");
-foreach (var part in document)
-    part.Accept(markdownExporter);
+var visitor = new PriceVisitor();
+foreach (var item in items)
+    item.Accept(visitor);
 
 Console.ReadLine();
 
-// ----- Element (Visitable) -----
-interface IDocumentPart
+interface IVisitor
 {
-    void Accept(IDocumentVisitor visitor);
+    void Visit(Book book);
+    void Visit(Fruit fruit);
 }
 
-// ----- Concrete Elements -----
-class PlainText : IDocumentPart
+interface IItem
 {
-    public string Text { get; }
-    public PlainText(string text) => Text = text;
-
-    public void Accept(IDocumentVisitor visitor) => visitor.Visit(this);
+    void Accept(IVisitor visitor);
 }
 
-class BoldText : IDocumentPart
+class Book : IItem
 {
-    public string Text { get; }
-    public BoldText(string text) => Text = text;
-
-    public void Accept(IDocumentVisitor visitor) => visitor.Visit(this);
+    public string Title { get; set; }
+    public double Price { get; set; }
+    public void Accept(IVisitor visitor) => visitor.Visit(this);
 }
 
-class Hyperlink : IDocumentPart
+class Fruit : IItem
 {
-    public string Text { get; }
-    public string Url { get; }
-    public Hyperlink(string text, string url)
-    {
-        Text = text;
-        Url = url;
-    }
-
-    public void Accept(IDocumentVisitor visitor) => visitor.Visit(this);
+    public string Name { get; set; }
+    public double Weight { get; set; }
+    public double PricePerKg { get; set; }
+    public void Accept(IVisitor visitor) => visitor.Visit(this);
 }
 
-// ----- Visitor Interface -----
-interface IDocumentVisitor
+class PriceVisitor : IVisitor
 {
-    void Visit(PlainText part);
-    void Visit(BoldText part);
-    void Visit(Hyperlink part);
+    public void Visit(Book book)
+        => Console.WriteLine($"{book.Title} book costs {book.Price} ₺");
+
+    public void Visit(Fruit fruit)
+        => Console.WriteLine($"{fruit.Name} costs {fruit.Weight * fruit.PricePerKg} ₺");
 }
 
-// ----- Concrete Visitors -----
-class HtmlExporter : IDocumentVisitor
-{
-    public void Visit(PlainText part) => Console.WriteLine($"<p>{part.Text}</p>");
-    public void Visit(BoldText part) => Console.WriteLine($"<b>{part.Text}</b>");
-    public void Visit(Hyperlink part) => Console.WriteLine($"<a href='{part.Url}'>{part.Text}</a>");
-}
-
-class MarkdownExporter : IDocumentVisitor
-{
-    public void Visit(PlainText part) => Console.WriteLine(part.Text);
-    public void Visit(BoldText part) => Console.WriteLine($"**{part.Text}**");
-    public void Visit(Hyperlink part) => Console.WriteLine($"[{part.Text}]({part.Url})");
-}
 
 ```
 
